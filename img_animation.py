@@ -4,10 +4,11 @@ from time import sleep
 import os
 from ascii_images import duck_left, duck_right
 import math
+from typing import Tuple
 
 
 # Returns a tuple, first value is new pos and 2nd value is new direction
-def get_sideways_motion(frame: Frame, img_name: str) -> tuple[int, int]:
+def get_sideways_motion(frame: Frame, img_name: str) -> Tuple[int, int]:
     img = frame.images[img_name]
     # Case where no space for sideways_motion
     if get_text_width(img.content) == get_text_width(frame.bg):
@@ -47,7 +48,7 @@ assert get_sideways_motion(
 
 
 # Returns a tuple, first value is new pos and 2nd value is new direction
-def get_topdown_motion(frame: Frame, img_name: str) -> tuple[int, int]:
+def get_topdown_motion(frame: Frame, img_name: str) -> Tuple[int, int]:
     img = frame.images[img_name]
     # Account for no space for topdown_motion
     if frame.bg.count("\n") == img.content.count("\n") + 1:

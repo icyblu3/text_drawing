@@ -161,6 +161,7 @@ def get_img_index(img: TextImg, background: str) -> int:
 
 # Add option to ignore bordering whitespace chars
 # Draws a given TextImg onto a background
+# WIP: Ignore whitespace chars
 def draw_img(img: TextImg, background: str) -> str:
     cut_img = cut_off_overshoot(img, background)
     # Get starting index

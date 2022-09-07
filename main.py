@@ -3,6 +3,7 @@ from text_img import TextImg, Frame
 from img_animation import animate_frame
 from random import randint, randrange
 import ascii_images
+from typing import Dict
 # Working with purely one line of text
 # /n chars are used to delineate new lines
 
@@ -43,7 +44,7 @@ def ascii_img_from_file(filename: str) -> str:
         out_str += pad_str
     return out_str
 
-def snowglobe_generator(num: int, background: str) -> dict[str, TextImg]:
+def snowglobe_generator(num: int, background: str) -> Dict[str, TextImg]:
     # characters = "~!@#$%^&*()_+`-={}|[]\\:\";\'<>?,./"
     characters = ".oO0@#%&+~:|/\\"
     max_pos = get_text_width(background) * background.count('\n') - 1
@@ -72,4 +73,3 @@ if __name__ == '__main__':
     bg = generate_background(50, 25)
     bg = draw_img(TextImg(860, ascii_images.snowman), bg)
     animate_frame(Frame(bg, snowglobe_generator(70, bg)), 0.25, 10)
-    
